@@ -10,10 +10,7 @@
 body {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    height: 100vh;
-    border: 1px solid black;
+    min-height: 100vh;
 }
 
 nav {
@@ -24,36 +21,44 @@ nav {
 
 main {
     width: 100%;
+    display: flex;
+    flex-flow: column wrap;
     flex-grow: 1;
 }
 
 article {
     background-color: aqua;
-    width: 100%;
+    flex-grow: 1;
 }
 
 .left-aside, .right-aside {
-    width: 100%;
     background-color: orange;
-    height: min-content;
 }
 
 footer {
+    width: 100%;
     height: 50px;
     background-color: blue;
 }
 
 @media (min-width: 768px) {
     main {
+        flex-direction: row;
+        width: 80%;
+        margin: 0 auto;
+    }
+    article {
         order: 2;
+        flex-grow: 4;
     }
     .left-aside {
-        order: 1;
+        order: -1;
     }
     .right-aside {
         order: 3;
     }
-    footer {
-        order: 5;
+    aside {
+        flex-grow: 1;
+        align-self: stretch;
     }
 }
